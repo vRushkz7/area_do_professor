@@ -8,6 +8,7 @@ import util.Logger;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//TODO: mostrar lista em todas opçoes de listar e excluir
 public class MenuView {
     static Scanner sc = new Scanner(System.in);
     static Aluno[] alunos = {
@@ -25,10 +26,10 @@ public class MenuView {
         int op;
         do {
             System.out.println("\n--- MENU PRINCIPAL ---");
-            System.out.println("1. CRUD Professores");
-            System.out.println("2. CRUD Faltas");
-            System.out.println("3. CRUD Notas");
-            System.out.println("4. CRUD Atividades");
+            System.out.println("1. Professores");
+            System.out.println("2. Faltas");
+            System.out.println("3. Notas");
+            System.out.println("4. Atividades");
             System.out.println("0. Sair");
             op = sc.nextInt(); sc.nextLine();
 
@@ -70,6 +71,12 @@ public class MenuView {
                     }
                 }
                 case 3 -> {
+                    ArrayList<Professor> list = pc.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        Professor p = list.get(i);
+                        System.out.println("[" + i + "] " + p.getNome() + " - " + p.getCpf() + " - " + p.getDisciplina());
+                    }
+                    
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     System.out.print("Nome: ");
@@ -81,6 +88,12 @@ public class MenuView {
                     pc.editar(idx, nome, cpf, disc);
                 }
                 case 4 -> {
+                    ArrayList<Professor> list = pc.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        Professor p = list.get(i);
+                        System.out.println("[" + i + "] " + p.getNome() + " - " + p.getCpf() + " - " + p.getDisciplina());
+                    }
+                    
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     pc.excluir(idx);
@@ -114,12 +127,22 @@ public class MenuView {
                     }
                 }
                 case 3 -> {
+                    var list = fc.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("[" + i + "] " + list.get(i).exibir());
+                    }
+
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     System.out.print("Nova descrição: ");
                     fc.editar(idx, sc.nextLine());
                 }
                 case 4 -> {
+                    var list = fc.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("[" + i + "] " + list.get(i).exibir());
+                    }
+
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     fc.excluir(idx);
@@ -155,6 +178,11 @@ public class MenuView {
                     }
                 }
                 case 3 -> {
+                    var list = nc.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("[" + i + "] " + list.get(i).exibir());
+                    }
+
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     System.out.print("Nova descrição: ");
@@ -164,6 +192,11 @@ public class MenuView {
                     nc.editarNota(idx, desc, val);
                 }
                 case 4 -> {
+                    var list = nc.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("[" + i + "] " + list.get(i).exibir());
+                    }
+
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     nc.excluir(idx);
@@ -198,12 +231,22 @@ public class MenuView {
                     }
                 }
                 case 3 -> {
+                    var list = ac.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("[" + i + "] " + list.get(i).exibir());
+                    }
+
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     System.out.print("Nova descrição: ");
                     ac.editar(idx, sc.nextLine());
                 }
                 case 4 -> {
+                    var list = ac.listar();
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println("[" + i + "] " + list.get(i).exibir());
+                    }
+                    
                     System.out.print("Índice: ");
                     int idx = sc.nextInt(); sc.nextLine();
                     ac.excluir(idx);
