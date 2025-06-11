@@ -1,6 +1,7 @@
-package util;
+package util.dao;
 
 import java.io.*;
+import util.Logger;
 
 public class Serializador {
     public static void salvar(Object obj, String caminho) {

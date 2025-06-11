@@ -1,10 +1,9 @@
-package controller;
+ package controller;
 
 import factory.ProfessorFactory;
-import model.Professor;
-import util.Serializador;
-
 import java.util.ArrayList;
+import model.Professor;
+import util.dao.Serializador;
 
 public class ProfessorController {
     private final String ARQUIVO = "professores.dat";

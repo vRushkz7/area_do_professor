@@ -1,9 +1,8 @@
 package controller;
 
-import model.RegistroAcademico;
-import util.Serializador;
-
 import java.util.ArrayList;
+import model.RegistroAcademico;
+import util.dao.Serializador;
 
 public abstract class BaseRegistroController<T extends RegistroAcademico> {
     protected ArrayList<T> registros;
