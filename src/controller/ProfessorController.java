@@ -1,17 +1,17 @@
 package controller;
 
 import dal.ProfessorDAO;
-import factory.ProfessorFactory; // Importa o ProfessorDAO
+import factory.ProfessorFactory;
 import java.util.ArrayList;
 import model.Professor;
 
 public class ProfessorController {
     private ArrayList<Professor> professores;
-    private ProfessorDAO professorDAO; // Instancia o DAO
+    private ProfessorDAO professorDAO;
 
     public ProfessorController() {
-        this.professorDAO = new ProfessorDAO(); // Inicializa o DAO
-        this.professores = professorDAO.carregar(); // Carrega usando o DAO
+        this.professorDAO = new ProfessorDAO(); 
+        this.professores = professorDAO.carregar(); 
     }
 
     public void cadastrar(String nome, String cpf, String disciplina) {
@@ -37,6 +37,6 @@ public class ProfessorController {
     }
 
     private void salvar() {
-        professorDAO.salvar(professores); // Salva usando o DAO
+        professorDAO.salvar(professores);
     }
 }

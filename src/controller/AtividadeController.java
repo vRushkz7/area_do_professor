@@ -2,16 +2,14 @@ package controller;
 
 import dal.AtividadeDAO;
 import java.util.ArrayList;
-import model.Aluno; // Importa o AtividadeDAO
+import model.Aluno;
 import model.Atividade;
 
 public class AtividadeController {
     private ArrayList<Atividade> atividades;
-    private AtividadeDAO atividadeDAO; // Instancia o DAO
 
     public AtividadeController() {
-        this.atividadeDAO = new AtividadeDAO(); // Inicializa o DAO
-        this.atividades = atividadeDAO.carregar(); // Carrega usando o DAO
+        this.atividades = AtividadeDAO.carregar();
     }
 
     public void cadastrar(Atividade atividade) {
@@ -41,6 +39,6 @@ public class AtividadeController {
     }
 
     private void salvar() {
-        atividadeDAO.salvar(atividades); // Salva usando o DAO
+        AtividadeDAO.salvar(atividades);
     }
 }

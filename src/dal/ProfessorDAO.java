@@ -1,9 +1,9 @@
 package dal;
 
-import model.Professor;
-import util.Logger; // O Logger continua em 'util'
 import java.io.*;
 import java.util.ArrayList;
+import model.Professor;
+import util.Logger;
 
 public class ProfessorDAO {
     private final String ARQUIVO = "professores.dat";
@@ -20,8 +20,7 @@ public class ProfessorDAO {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ARQUIVO))) {
             return (ArrayList<Professor>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            // Este erro é esperado na primeira execução, quando o arquivo ainda não existe.
-            // Apenas registra e retorna uma lista vazia.
+
             Logger.registrar("Erro ao carregar professores: " + e.getMessage());
             return new ArrayList<>();
         }

@@ -1,16 +1,16 @@
 package controller;
 
-import dal.FaltaDAO; // Importa o FaltaDAO
+import dal.FaltaDAO;
 import java.util.ArrayList;
 import model.Falta;
 
 public class FaltaController {
     private ArrayList<Falta> faltas;
-    private FaltaDAO faltaDAO; // Instancia o DAO
+    private FaltaDAO faltaDAO;
 
     public FaltaController() {
-        this.faltaDAO = new FaltaDAO(); // Inicializa o DAO
-        this.faltas = faltaDAO.carregar(); // Carrega usando o DAO
+        this.faltaDAO = new FaltaDAO();
+        this.faltas = faltaDAO.carregar();
     }
 
     public void cadastrar(Falta falta) {
@@ -33,6 +33,6 @@ public class FaltaController {
     }
 
     private void salvar() {
-        faltaDAO.salvar(faltas); // Salva usando o DAO
+        faltaDAO.salvar(faltas);
     }
 }

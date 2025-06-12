@@ -1,16 +1,16 @@
 package controller;
 
-import dal.NotaDAO; // Importa o NotaDAO
+import dal.NotaDAO;
 import java.util.ArrayList;
 import model.Nota;
 
 public class NotaController {
     private ArrayList<Nota> notas;
-    private NotaDAO notaDAO; // Instancia o DAO
+    private NotaDAO notaDAO;
 
     public NotaController() {
-        this.notaDAO = new NotaDAO(); // Inicializa o DAO
-        this.notas = notaDAO.carregar(); // Carrega usando o DAO
+        this.notaDAO = new NotaDAO();
+        this.notas = notaDAO.carregar();
     }
 
     public void cadastrar(Nota nota) {
@@ -35,6 +35,6 @@ public class NotaController {
     }
 
     private void salvar() {
-        notaDAO.salvar(notas); // Salva usando o DAO
+        notaDAO.salvar(notas);
     }
 }
