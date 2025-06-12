@@ -1,21 +1,17 @@
- package controller;
+package controller;
 
-import factory.ProfessorFactory;
+import dal.ProfessorDAO;
+import factory.ProfessorFactory; // Importa o ProfessorDAO
 import java.util.ArrayList;
 import model.Professor;
-import util.dao.Serializador;
 
 public class ProfessorController {
-    private final String ARQUIVO = "professores.dat";
     private ArrayList<Professor> professores;
+    private ProfessorDAO professorDAO; // Instancia o DAO
 
     public ProfessorController() {
-        Object obj = Serializador.carregar(ARQUIVO);
-        if (obj != null) {
-            professores = (ArrayList<Professor>) obj;
-        } else {
-            professores = new ArrayList<>();
-        }
+        this.professorDAO = new ProfessorDAO(); // Inicializa o DAO
+        this.professores = professorDAO.carregar(); // Carrega usando o DAO
     }
 
     public void cadastrar(String nome, String cpf, String disciplina) {
@@ -41,6 +37,6 @@ public class ProfessorController {
     }
 
     private void salvar() {
-        Serializador.salvar(professores, ARQUIVO);
+        professorDAO.salvar(professores); // Salva usando o DAO
     }
 }
